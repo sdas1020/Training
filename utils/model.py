@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 
 class Perceptron:
   def __init__(self, eta, epochs):
@@ -9,6 +10,7 @@ class Perceptron:
 
 
   def activationFunction(self, inputs, weights):
+
     z = np.dot(inputs, weights) # z = W * X
     return np.where(z > 0, 1, 0) # CONDITION, IF TRUE, ELSE
 
@@ -19,7 +21,7 @@ class Perceptron:
     X_with_bias = np.c_[self.X, -np.ones((len(self.X), 1))] # CONCATINATION
     print(f"X with bias: \n{X_with_bias}")
 
-    for epoch in range(self.epochs):
+    for epoch in tqdm(range(self.epochs), total =self.epochs) :
       print("--"*10)
       print(f"for epoch: {epoch}")
       print("--"*10)

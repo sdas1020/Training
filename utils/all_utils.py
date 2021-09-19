@@ -8,8 +8,6 @@ import os
 
 plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS  
 
-
-
 def prepare_data(df):
   X = df.drop("y", axis=1)
 
